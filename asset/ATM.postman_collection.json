@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "6750db22-d111-40a8-8b57-2b5370e211d6",
+		"name": "ATM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:7700/cardValidate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYXJkTnVtYmVyIjoiMTA1NTAwMDAwMSJ9.ZUG0mBn7o9ECSUgs-rJrFNxfhMx2J9k6Zomz4EZLeio",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cardNumber\": \"1055000001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8760/atm-service/verifyCardNumber",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8760",
+					"path": [
+						"atm-service",
+						"verifyCardNumber"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:7700/verifyPin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYXJkTnVtYmVyIjoiMTA1NTAwMDAwMSJ9.ZUG0mBn7o9ECSUgs-rJrFNxfhMx2J9k6Zomz4EZLeio",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cardNumber\": \"1055000001\",\r\n    \"pinType\": \"1\",\r\n    \"pinValue\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8760/atm-service/verifyPin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8760",
+					"path": [
+						"atm-service",
+						"verifyPin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:7700/getOperationList",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eO@6uu85Gl9fF8kpfdHIVW4TId3WHq#iB7DqodVLSzaSvPRcnuTd!xbNMt0IH@ht",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8760/atm-service/operationList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8760",
+					"path": [
+						"atm-service",
+						"operationList"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

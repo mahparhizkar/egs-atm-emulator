@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %5p  [%t] - %M  - %m%n%ex
+        </Property>
+        <Property name="log-path">/var/log/bank-atm/bank</Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="ErrorLogger" fileName="${log-path}/bank-error.log" filePattern="${log-path}/bank-error-%d{yyyy-MM-dd}.log">
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </RollingFile>
+        <RollingFile name="EventLogger" fileName="${log-path}/bank-event.log" filePattern="${log-path}/bank-error-%d{yyyy-MM-dd}.log">
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </RollingFile>
+        <RollingFile name="AllLogger" fileName="${log-path}/bank-all.log" filePattern="${log-path}/bank-all-%d{yyyy-MM-dd}.log">
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </RollingFile>
+        <Console name="MyConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="EventLogger" level="info" additivity="false">
+            <AppenderRef ref="EventLogger" level="info"/>
+            <AppenderRef ref="MyConsoleAppender" />
+        </Logger>
+        <Logger name="ErrorLogger" level="error" additivity="false">
+            <AppenderRef ref="ErrorLogger" level="error"/>
+            <AppenderRef ref="MyConsoleAppender" />
+        </Logger>
+
+        <Root level="debug" additivity="false">
+            <AppenderRef ref="MyConsoleAppender" level="info"/>
+            <AppenderRef ref="AllLogger" level="debug"/>
+        </Root>
+    </Loggers>
+</Configuration>
