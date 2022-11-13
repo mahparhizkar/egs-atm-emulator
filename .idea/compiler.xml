@@ -12,7 +12,6 @@
         <module name="bank" />
         <module name="eureka" />
         <module name="info" />
-        <module name="test" />
         <module name="zuul" />
       </profile>
     </annotationProcessing>
