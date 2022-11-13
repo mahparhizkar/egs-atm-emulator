@@ -1,6 +1,8 @@
 package com.egs.info.controller;
 
 import com.egs.info.dto.ApiResponseDto;
+import com.egs.info.service.InfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +12,9 @@ import java.util.HashMap;
 
 @RestController
 public class InfoController {
+
+	@Autowired
+	InfoService infoService;
 
 	@RequestMapping(value = "/findServicesUrl", method = RequestMethod.POST)
 	public ApiResponseDto findServicesUrl() {
@@ -37,5 +42,10 @@ public class InfoController {
 	public ApiResponseDto getSampleCardNumberAndPin() {
 		String value = "cardNumber: 1055000001, pinType: 1, pinValue: 1234";
 		return new ApiResponseDto(true, 0, "Success!", value);
+	}
+
+	@RequestMapping(value = "/circuitBreaker", method = RequestMethod.POST)
+	public ApiResponseDto circuitBreaker() {
+		return infoService.circuitBreaker();
 	}
 }
