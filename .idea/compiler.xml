@@ -11,6 +11,7 @@
         <module name="atm" />
         <module name="bank" />
         <module name="eureka" />
+        <module name="info" />
         <module name="test" />
         <module name="zuul" />
       </profile>
@@ -20,6 +21,7 @@
       <module name="atm" target="1.8" />
       <module name="bank" target="1.8" />
       <module name="eureka" target="1.8" />
+      <module name="info" target="1.8" />
       <module name="test" target="1.8" />
       <module name="zuul" target="1.8" />
     </bytecodeTargetLevel>
@@ -30,6 +32,7 @@
       <module name="atm" options="-parameters" />
       <module name="bank" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="info" options="-parameters" />
       <module name="test" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>
