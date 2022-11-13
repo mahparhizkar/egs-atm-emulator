@@ -65,6 +65,9 @@ Is a service for get general info for login like session before login, cardNumbe
 
 ## Deployment Strategy with Docker
 
+Docker hub repo:
+https://hub.docker.com/r/mahboubparhizkar/egs-atm-emulator/tags
+
 ### Build image for each microservices
 **1. Admin Service**
 ```
