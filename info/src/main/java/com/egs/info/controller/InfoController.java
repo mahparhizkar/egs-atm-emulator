@@ -11,12 +11,31 @@ import java.util.HashMap;
 @RestController
 public class InfoController {
 
-    @RequestMapping(value = "/operationList", method = RequestMethod.POST)
-    public ApiResponseDto getOperationList() {
-		HashMap<String, String> operations = new HashMap<String, String>();
-		operations.put("1", "Cash deposit");
-		operations.put("2", "Cash withdrawal");
-		operations.put("3", "Check balance");
-		return new ApiResponseDto(true, 0, "Success!", operations);
+	@RequestMapping(value = "/findServicesUrl", method = RequestMethod.POST)
+	public ApiResponseDto findServicesUrl() {
+		HashMap<String, String> urls = new HashMap<String, String>();
+		urls.put("Admin-Service", "http://localhost:8759/#/wallboard");
+		urls.put("Eureka-Service", "http://localhost:8761/");
+		urls.put("Swagger", "http://localhost:8760/swagger-ui.html");
+		urls.put("Swagger-info-service", "http://localhost:8760/info-service/swagger-ui.html");
+		return new ApiResponseDto(true, 0, "Success!", urls);
+	}
+
+    @RequestMapping(value = "/getGeneralTokenBeforeLogin", method = RequestMethod.GET)
+    public ApiResponseDto getGeneralTokenBeforeLogin() {
+		String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYXJkTnVtYmVyIjoiMTA1NTAwMDAwMSJ9.ZUG0mBn7o9ECSUgs-rJrFNxfhMx2J9k6Zomz4EZLeio";
+		return new ApiResponseDto(true, 0, "Success!", token);
     }
+
+	@RequestMapping(value = "/getSampleCardNumber", method = RequestMethod.GET)
+	public ApiResponseDto getSampleCardNumber() {
+		String cardNumber = "1055000001";
+		return new ApiResponseDto(true, 0, "Success!", cardNumber);
+	}
+
+	@RequestMapping(value = "/getSampleCardNumberAndPin", method = RequestMethod.GET)
+	public ApiResponseDto getSampleCardNumberAndPin() {
+		String value = "cardNumber: 1055000001, pinType: 1, pinValue: 1234";
+		return new ApiResponseDto(true, 0, "Success!", value);
+	}
 }

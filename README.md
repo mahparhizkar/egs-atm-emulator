@@ -6,12 +6,13 @@ Spring boot microservices Atm-Emulator
 2. JPA Mysql
 3. Spring Cloud
 4. Lombok 
-5. Eureka
-6. Zuul
-7. Admin
+5. Eureka discovery server
+6. Zuul gateway
+7. Admin monitoring services
 8. JWT + Session handling
 9. Aop Logger
 10. Netflix Hystrix
+11. Swagger ui
 
 
 import postman file from asset folder, 
@@ -56,6 +57,10 @@ This service is the user side interface for send the requests to bank service.
 ## Bank Service (8751)
 Is the main part of application for hold the data and control the session and token.
 
+## Info Service (8752)
+Is a service for get general info for login like session before login, cardNumber and pinValue , ...
+
+
 
 
 ## Deployment Strategy with Docker
@@ -91,6 +96,12 @@ mvn clean install package -DskipTests
 docker image build -t bank-service --rm=true .
 ```
 
+**6. Info Service**
+```
+mvn clean install package -DskipTests
+docker image build -t info-service --rm=true .
+```
+
 ### Create and run container using Docker Compose
 ```docker-compose up --build```
 
@@ -102,3 +113,6 @@ docker image build -t bank-service --rm=true .
 ## Admin-Eureka
 1. [Admin UI](asset/admin.JPG)
 2. [Eureka UI](asset/eureka.JPG)
+
+## Swagger
+1. [Swagger Ui](asset/swagger.JPG)
